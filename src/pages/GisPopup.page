@@ -135,7 +135,7 @@
   <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
   <script src="//unpkg.com/leaflet@1.1.0/dist/leaflet.js"></script>
-  <script src="//unpkg.com/esri-leaflet@2.0.8"></script>
+  <script src="//unpkg.com/esri-leaflet@2.1.4"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/async/2.5.0/async.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.3/proj4.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
@@ -147,7 +147,8 @@
   </script>
 
   <!-- JavaScript: Local -->
-  <script src="{!URLFOR($Resource.GisConfigJs)}"></script>
-  <script src="{!URLFOR($Resource.GisAppJs)}"></script>
-  <script src="{!URLFOR($Resource.GisMapJs)}"></script>
+  <script src="{!URLFOR($Resource.GisConfigJs)}" type="text/javascript"></script>
+  <script src="{!URLFOR($Resource.GisAppJs)}" type="text/javascript"></script>
+  <script src="{!URLFOR($Resource.GisMapJs)}" type="text/javascript"></script>
+ 
 </apex:page>
