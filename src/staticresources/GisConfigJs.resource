@@ -18,43 +18,43 @@ var GIS_CONFIG = {
   queryLayers: {
     demoPermit: {
       type: 'esri',
-        url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/Construction/MapServer/18',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_PERMITS/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRKEY = ' + feature.properties.li_address_key + " AND APPLICATION_TYPE = 'BP_DEMO'";
+                return 'ADDRESSKEY = ' + feature.properties.li_address_key + " AND PERMITTYPE = 'BP_DEMO'";
             }
         }
     },
     dumpsterPrivate: {
       type: 'esri',
-      url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/Business/MapServer/8',
+      url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
       options: {
         where: function (feature) {
-          return 'ADDRKEY = ' + feature.properties.li_address_key + " AND TYPE = '3230'";
+          return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3230'";
         },
       },
     },
     familyDaycare: {
       type: 'esri',
-      url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/Business/MapServer/8',
+      url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
       options: {
         where: function (feature) {
-          return 'ADDRKEY = ' + feature.properties.li_address_key + " AND TYPE = '3397'";
+          return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3397'";
         },
       },
     },
     foodLicense: {
         type: 'esri',
-        url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/Business/MapServer/6',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRKEY = ' + feature.properties.li_address_key;
+                return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3118'";
             }
         }
     },
     healthCenter: {
         type: 'esri',
-        url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/Health_Centers/MapServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/Health_Centers/FeatureServer/0',
         options: {
             where: function (feature) {
               // note: this layer doesn't have standardized addresses, so there's no
@@ -65,7 +65,7 @@ var GIS_CONFIG = {
     },
     hospital: {
         type: 'esri',
-        url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/Hospitals/MapServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/Hospitals/FeatureServer/0',
         options: {
             where: function (feature) {
               return "UPPER(ADDRESS) LIKE '" + feature.properties.street_address + "%'";
@@ -85,46 +85,46 @@ var GIS_CONFIG = {
     },
     rentalLicense: {
         type: 'esri',
-        url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/RentalLicense/MapServer/2',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRKEY = ' + feature.properties.li_address_key;
+                return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3202'";
             }
         }
     },
     rentalViolation: {
         type: 'esri',
-        url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/RentalLicense/MapServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_VIOLATIONS/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRKEY = ' + feature.properties.li_address_key;
+                return 'ADDRESSKEY = ' + feature.properties.li_address_key + " AND VIOLATIONTYPE like 'PM-102%";
             }
         }
     },
     vacancy: {
         type: 'esri',
-        url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/Vacancy/MapServer/2',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRKEY = ' + feature.properties.li_address_key;
+                return ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3219'";
             }
         }
     },
     violationProperty: {
         type: 'esri',
-        url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/Violations/MapServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_VIOLATIONS/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRKEY = ' + feature.properties.li_address_key + " and VIOLATION_STATUS <> 'NOT COMPLIED'";
+                return 'ADDRESSKEY = ' + feature.properties.li_address_key + " and STATUS IS NULL";
             }
         }
     },
     zoningPermit: {
         type: 'esri',
-        url: '//gis.phila.gov/arcgis/rest/services/PhilaGov/Construction/MapServer/12',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_PERMITS/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRKEY = ' + feature.properties.li_address_key;
+                return 'ADDRESSKEY = ' + feature.properties.li_address_key + " PERMITTYPE LIKE 'ZP%'";
             }
         }
     },
