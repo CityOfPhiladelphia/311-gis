@@ -68,7 +68,7 @@ var GIS_CONFIG = {
         url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/Hospitals/FeatureServer/0',
         options: {
             where: function (feature) {
-              return "UPPER(ADDRESS) LIKE '" + feature.properties.street_address + "%'";
+              return "UPPER(STREET_ADDRESS) LIKE '" + feature.properties.street_address + "%'";
             }
         }
     },
