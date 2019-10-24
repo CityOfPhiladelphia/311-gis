@@ -30,7 +30,7 @@ var GIS_CONFIG = {
       url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
       options: {
         where: function (feature) {
-          return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3230'";
+          return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id.split('|')[0] + " AND REVENUECODE = '3230'";
         },
       },
     },
@@ -39,7 +39,7 @@ var GIS_CONFIG = {
       url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
       options: {
         where: function (feature) {
-          return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3397'";
+          return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id.split('|')[0] + " AND REVENUECODE = '3397'";
         },
       },
     },
@@ -48,7 +48,7 @@ var GIS_CONFIG = {
         url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3118'";
+                return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id.split('|')[0] + " AND REVENUECODE = '3118'";
             }
         }
     },
@@ -88,7 +88,7 @@ var GIS_CONFIG = {
         url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3202'";
+                return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id.split('|')[0] + " AND REVENUECODE = '3202'";
             }
         }
     },
@@ -106,7 +106,7 @@ var GIS_CONFIG = {
         url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
         options: {
             where: function (feature) {
-                return ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3219'";
+                return ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id.split('|')[0] + " AND REVENUECODE = '3219'";
             }
         }
     },
