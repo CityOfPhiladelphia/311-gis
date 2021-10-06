@@ -294,7 +294,15 @@ var GIS = (function () {
                 data: params,
                 success: function (dataStr) {
                   // parse json string
+                   console.log('testdatastringbefore', queryLayerName, data, url,dataStr);
+                  try {
                   var data = $.parseJSON(dataStr);
+                  } catch (e) {
+                                // Let's assume the error is that we already have parsed the payload
+                                // So just return that
+                            var data = dataStr;
+                  }
+                     console.log('testdatasrtringafter', queryLayerName, data, url, dataStr);
 
                   // check for error
                   if (data.error) {
@@ -305,7 +313,7 @@ var GIS = (function () {
                     return;
                   }
 
-                  //console.log('did get data for where query', queryLayerName, data, url);
+                  console.log('did get data for where query', queryLayerName, data, url);
 
                   // unpack attributes object
                   var features = data.features,
@@ -427,6 +435,7 @@ var GIS = (function () {
           // parent page checks for the token `Intersection`, so camel case this
           matchType = GIS.toCamelCase(feature.ais_feature_type),
           addressKey = (props.li_address_key || '').split('|')[0],
+          pwdParcel = props.pwd_parcel_id,
           parentCase = parentCase || {},
           parentId = parentCase.id,
           label = parentCase.num;
@@ -442,6 +451,7 @@ var GIS = (function () {
             matchType: matchType,
             // address keys are pipe-delimited, so take the first one
             addressKey: addressKey,
+            pwdParcel: pwdParcel,
             // REVIEW is it ok to use the opa address here?
             liAddress: props.opa_address,
             zoning: props.zoning,

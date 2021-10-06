@@ -18,37 +18,37 @@ var GIS_CONFIG = {
   queryLayers: {
     demoPermit: {
       type: 'esri',
-        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_PERMITS/FeatureServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/PERMITS/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRESSKEY = ' + feature.properties.li_address_key + " AND PERMITTYPE = 'BP_DEMO'";
+                return "ADDRESSOBJECTID = '" + feature.properties.eclipse_location_id + "' AND PERMITTYPE = 'Demolition'";
             }
         }
     },
     dumpsterPrivate: {
       type: 'esri',
-      url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
+      url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/BUSINESS_LICENSES/FeatureServer/0',
       options: {
         where: function (feature) {
-          return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3230'";
+          return 'ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id.split('|')[0] + " AND REVENUECODE = '3230'";
         },
       },
     },
     familyDaycare: {
       type: 'esri',
-      url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
+      url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/BUSINESS_LICENSES/FeatureServer/0',
       options: {
         where: function (feature) {
-          return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3397'";
+          return 'ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id.split('|')[0] + " AND REVENUECODE = '3397'";
         },
       },
     },
     foodLicense: {
         type: 'esri',
-        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/BUSINESS_LICENSES/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3118'";
+                return 'ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id.split('|')[0] + " AND REVENUECODE = '3118'";
             }
         }
     },
@@ -85,46 +85,46 @@ var GIS_CONFIG = {
     },
     rentalLicense: {
         type: 'esri',
-        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/BUSINESS_LICENSES/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3202'";
+                return 'ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id.split('|')[0] + " AND REVENUECODE = '3202'";
             }
         }
     },
     rentalViolation: {
         type: 'esri',
-        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_VIOLATIONS/FeatureServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/VIOLATIONS/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRESSKEY = ' + feature.properties.li_address_key + " AND VIOLATIONTYPE like 'PM-102%";
+                return "ADDRESSOBJECTID = '" + feature.properties.eclipse_location_id + "' AND VIOLATIONCODE like 'PM-102%'";
             }
         }
     },
     vacancy: {
         type: 'esri',
-        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_BUSINESS_LICENSES/FeatureServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/BUSINESS_LICENSES/FeatureServer/0',
         options: {
             where: function (feature) {
-                return ECLIPSE_ADDRESSOBJECTID = ' + feature.properties.eclipse_location_id + " AND REVENUECODE = '3219'";
+                return "ADDRESSOBJECTID = '" + feature.properties.eclipse_location_id.split('|')[0] + "' AND REVENUECODE = '3219'";
             }
         }
     },
     violationProperty: {
         type: 'esri',
-        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_VIOLATIONS/FeatureServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/VIOLATIONS/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRESSKEY = ' + feature.properties.li_address_key + " and STATUS IS NULL";
+                return "ADDRESSOBJECTID = '" + feature.properties.eclipse_location_id + "' and VIOLATIONSTATUS = 'OPEN' ";
             }
         }
     },
     zoningPermit: {
         type: 'esri',
-        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/LI_PERMITS/FeatureServer/0',
+        url: 'https://services.arcgis.com/fLeGjb7u4uXqeF9q/ArcGIS/rest/services/PERMITS/FeatureServer/0',
         options: {
             where: function (feature) {
-                return 'ADDRESSKEY = ' + feature.properties.li_address_key + " PERMITTYPE LIKE 'ZP%'";
+                return "ADDRESSOBJECTID = '" + feature.properties.eclipse_location_id + "' AND PERMITTYPE = 'ZONING'";
             }
         }
     },
